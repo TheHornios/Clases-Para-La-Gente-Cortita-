@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var alto = 8;
+        var ancho = 9;
+        var textoConsola = "";
+        for(var i=0;i<alto;i++){
+            textoConsola = "";
+            for(var a=0;a<ancho;a++){
+                if(i%2!=0){
+                    textoConsola += rellenar(a);
+                }else{
+                    textoConsola += rellenar(a+1);
+                }
+                
+            }
+            console.log(textoConsola);
+        }
+        
+        function rellenar(valor){
+            var texto= "";
+            if(valor%2==0){
+                texto=" ";
+            }
+            if(valor%2!=0){
+                texto = "#";
+            }
+            return texto;
+        }
+    </script>
+</body>
+</html>

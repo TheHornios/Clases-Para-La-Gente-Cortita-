@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>u1e04_area</title>
+</head>
+<body>
+    <script>
+        var figura = "";
+        var area = "";
+        var perimetro = "";
+        document.write("Se pregunta: ¿Que figura desea calcular?<br/>");
+        do{
+            figura = prompt("Introduce una figura").charAt(0).toUpperCase();
+            document.write("El usuario responde:"+figura+"<br/>");
+        }while(figura != "S" & figura != "T" & figura != "C" );
+
+        if(figura == "S"){
+            cuadrado();
+        }else{
+            if(figura == "T"){
+                triangulo();
+            }else{
+                if(figura == "C"){
+                    cirgulo();
+                }
+            }
+        }
+        
+        function cirgulo(){
+            var radio =  prompt("Introduce el radio del cirgulo");
+            document.write("Se pregunta: Introduce el radio del cirgulo"+"<br/>");
+            document.write("El usuario responde:"+radio+"<br/>");
+            area = Math.PI * (radio*radio);
+            perimetro = 2*Math.PI*radio;
+            respuesta(figura,radio,0);
+        }
+        function triangulo(){
+            var base =  prompt("Introduce el base del triangulo");
+            document.write("Se pregunta: Introduce el base del triangul"+"<br/>");
+            document.write("El usuario responde:"+base+"<br/>");
+            var altura =  prompt("Introduce el altura del triangulo");
+            document.write("Se pregunta: Introduce el altura del triangulo"+"<br/>");
+            document.write("El usuario responde:"+altura+"<br/>");
+            area = (base*altura)/2;
+            perimetro = base*3;
+            respuesta(figura,base,altura);
+        }
+        function cuadrado(){
+            var lado =  prompt("Introduce el lado del cuadrado");
+            document.write("Se pregunta: ¿Introduce el lado del cuadrado?"+"<br/>");
+            document.write("El usuario responde:"+lado+"<br/>");
+            area = lado*2;
+            perimetro = lado+lado+lado+lado;
+            respuesta(figura,lado,0);
+        }   
+        function respuesta(valor,lado,lado2){
+            if(valor == "S"){
+                document.write("Respuesta"+"cuadrado"+"<br/>");
+                document.write("lado: "+lado+"<br/>");
+                document.write("área: "+area+"<br/>");
+                document.write("perímetro: "+perimetro+"<br/>");
+            }
+            if(valor == "C"){
+                document.write("Respuesta"+"Circulo"+"<br/>");
+                document.write("Radio: "+lado+"<br/>");
+                document.write("área: "+area+"<br/>");
+                document.write("perímetro: "+perimetro+"<br/>");
+            }
+            if(valor == "T"){
+                document.write("Respuesta"+"Triangulo"+"<br/>");
+                document.write("Base: "+lado+"<br/>");
+                document.write("Altura: "+lado2+"<br/>");
+                document.write("área: "+area+"<br/>");
+                document.write("perímetro: "+perimetro+"<br/>");
+            }
+
+        }
+    </script>
+</body>
+</html>

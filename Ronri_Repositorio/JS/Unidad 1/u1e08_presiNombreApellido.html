@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>u1e08_presiNombreApellido</title>
+</head>
+<body>
+    <script>
+        var presidente = "";
+        presidente = prompt("Primer Presidente De España").toUpperCase();
+        while(presidente != "ADOLFO SUAREZ"){
+           if(presidente.substring(0,6)!="ADOLFO" & presidente.substring(7,13)!="SUAREZ" & presidente.substring(0,6)!="SUAREZ"){
+                presidente = prompt("Error. Intentelo de nuevo").toUpperCase();
+            }else{
+                Comprobador();
+            }
+           
+        }
+        function Comprobador(){
+            if(presidente.substring(0,6)=="ADOLFO"){
+                    presidente = prompt("Error. Te falta el apellido ¿Cual Fue El Presidente de España?").toUpperCase();
+            }
+            if(presidente.substring(7,13)=="SUAREZ"||presidente.substring(0,6)=="SUAREZ"){
+                presidente = prompt("Error. Te falta el nombre ¿Cual Fue El Presidente de España?").toUpperCase();
+            }
+        }
+        document.write("<h1>Buenas Tardes</h1>");
+
+        
+    </script>
+</body>
+</html>

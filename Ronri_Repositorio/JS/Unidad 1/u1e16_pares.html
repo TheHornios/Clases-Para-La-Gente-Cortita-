@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function esPar (a){
+            return a%2==0?true:false;
+        }
+        
+        function esparRecursivo(a){
+            var i;
+            if(a==0){
+                i = true;
+            }else{
+                if(a==1){
+                    i = false;
+                }else{
+                    i = esparRecursivo(a-2);
+                }
+            }
+            return i;
+        }
+    </script>
+</body>
+</html>

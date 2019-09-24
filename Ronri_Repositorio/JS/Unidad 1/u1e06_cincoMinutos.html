@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <h1>HorARIOS</h1>
+        <ul>
+            <script>
+                var hora = 9
+                var minutos= 00;
+                document.write("<li>"+hora+":"+minutos+"0</li>");
+                while(hora!=21||minutos!=30){
+                        minutos+= 5;
+                        if(minutos == 65){
+                            minutos=00;
+                            hora+=1;
+                        }
+                        if(minutos<10){
+                            document.write("<li>"+hora+":0"+minutos+"</li>");
+                        }else{
+                            document.write("<li>"+hora+":"+minutos+"</li>");
+                        }
+                        
+                        
+                }
+            </script>
+        </ul>
+</body>
+</html>

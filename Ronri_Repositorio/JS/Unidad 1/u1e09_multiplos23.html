@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> u1e09_multiplos23</title>
+</head>
+<body>
+    <h1>Listado numerico del 1 al 100</h1>
+    <script>
+        var texto = "";
+        for(var i = 1;i<100;i++){
+            texto += "</br>El "+i; 
+            if(i%2 == 0){
+                texto += " es multiplo de "+2;
+            }
+            if(i%3 == 0&&i%2 != 0){
+                texto += " es multiplo de "+3;
+            }
+            if(i%3 == 0&&i%2 == 0){
+                texto += " es multiplo de "+2+" y de 3";
+            }
+        }    
+        document.write(texto);
+    </script>
+</body>
+</html>

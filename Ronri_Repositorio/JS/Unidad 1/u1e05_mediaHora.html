@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>u1e05_mediaHora</title>
+</head>
+<body>
+    <h1>HorARIOS</h1>
+    <ul>
+        <script>
+            var hora = 9
+            var valor = true;
+            while(hora!=22){
+                if(valor){
+                    document.write("<li>"+hora+":00</li>");
+                    valor = false;
+                }
+                if(!valor){
+                    document.write("<li>"+hora+":30</li>");
+                    valor = true;
+                    hora +=1;
+                }
+            }
+        </script>
+    </ul>
+</body>
+</html>

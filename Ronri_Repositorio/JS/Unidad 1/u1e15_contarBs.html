@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function contarBs (valor){
+            var cant = 0;
+            for(let i = 0;i<valor.length;i++){
+                if(valor[i].toUpperCase()=='B'){
+                    cant++;
+                }
+            }
+            return cant;
+        }
+        document.write(contarBs("bebe")+" Funcion Contar B<br/>");
+
+        function contarCaracter (valor,valorCarac){
+            var cant = 0;
+            for(let i = 0;i<valor.length;i++){
+                if(valor[i].toUpperCase()==valorCarac.toUpperCase()){
+                    cant++;
+                }
+            }
+
+            return cant;
+        }
+        document.write(contarCaracter("bebe","e")+" Funcion Contar Caracter<br/>");
+    </script>
+</body>
+</html>

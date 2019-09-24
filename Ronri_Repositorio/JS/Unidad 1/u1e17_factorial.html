@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function factorialIter(valor){
+            
+            if(!valor == 0){
+                var valor1 =1;
+                for(var i = 1 ;i<=valor;i++){
+                    valor1 = valor1*i;
+                }
+                return valor1;
+            }else{
+                return 0;
+            }
+        }
+        function factorialRecur(valor){
+            if(!valor == 0){
+                return valor * factorialRecur(valor - 1);
+            }else{
+                return 1;
+            }
+            return 
+        }
+        document.write(factorialIter(4)+"<BR/>");
+      //  document.write(factorialRecur(4));
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       function fiboIter(cantidad){
+           var result =0;
+            var pre = 0;
+            var post = 1;
+
+            if(cantidad>1){
+                for(var i = 2;i<=cantidad;i++){
+                    result = pre+post;
+                    pre = post;
+                    post = result;
+                   
+                    document.write(result+" ");
+                }
+            }
+
+            return result;
+       }
+       fiboIter(10);
+       document.write("<br/>");
+       function fiborRecur(cantidad){
+           if(cantidad== 0 || cantidad == 1){
+                return cantidad;
+           }else{
+                return fiborRecur(cantidad-1) + fiborRecur(cantidad-2);
+           }
+       }
+       fiboIter(9);
+       document.write(fiborRecur(10));
+    </script>
+</body>
+</html>
