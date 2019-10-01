@@ -1,5 +1,6 @@
 <?php
     include("Datos.php");
+    mostrarArrayBidimensional($banco);
 
     /* Odenar El Array */
     function ordenarPorDniAscendente($banco){

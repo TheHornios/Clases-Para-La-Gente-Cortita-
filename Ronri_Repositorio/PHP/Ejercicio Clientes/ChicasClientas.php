@@ -1,6 +1,7 @@
 <?php
     include("Mostrar.php");
     //Clientes que son chicas que acaban con a o emiezan con MA
+    mostrarArrayBidimensional($banco);
 
     function mostrarMuejres($banco){
         echo "<h3>5º Clientes que son chicas que acaban con A o emiezan con MA </h3>";

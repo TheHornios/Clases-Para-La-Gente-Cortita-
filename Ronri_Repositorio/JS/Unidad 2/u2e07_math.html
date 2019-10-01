@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var menu = true;
+        var menuText = "";
+        while(menu){
+            menuText = prompt("1.Potencia: \n2.Raiz: \n3.Redondeo\n4.Trigonometria").charAt(0);
+            if(menuText == 1){
+                opcion1();
+                menu = false;
+            }
+            if(menuText == 2){
+                opcion2();
+                menu = false;
+            }
+            if(menuText == 3){
+
+                menu = false;
+            }
+            if(menuText == 4){
+
+                menu = false;
+            }
+        }
+        function opcion1(){
+            var si = true;
+            var base;
+            var exponete;
+            do{
+                try{
+                    base= parseInt(prompt("Introduce la base"));
+                    exponete= parseInt(prompt("Introduce el esponente"));
+                    si = false;
+                }catch(error){
+                    si = true;
+                }
+                
+            }while(si)
+            alert(si);
+            document.write(potencia(base,exponete));
+        }
+        function opcion2(){
+            var valor = -1;
+            do{
+                try{
+                    valor = parseInt(prompt("Introduce un valor no negativo"));
+                }catch(error){
+                    valor = -1;
+                }
+            }while(valor < 0)
+            document.write(raiz(valor));
+        }
+        function potencia(base,exponente){
+            return "La potencia de "+base+" elevado a "+exponente+" es: "+Math.pow(base,exponente);
+        }
+        function raiz(valor){
+            return "La raiz de "+valor+" es: "+Math.sqrt(valor);
+        }
+    </script>
+</body>
+</html>

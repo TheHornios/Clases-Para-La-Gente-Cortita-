@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function  palindromo(valor){
+            var texto = "";
+            var array = valor.split(" ");
+            var texto1 = "";
+            var array1 = new Array();
+
+            for(let i = 0;i<valor.length;i++){
+                if(valor.charAt(i)!=" "){
+                    array1.push(valor.charAt(i));
+                }
+            }
+            array1.reverse();
+
+            for(let i = 0;i<array.length;i++){
+                texto+=array[i];
+            }
+            for(let i = 0;i<array1.length;i++){
+                texto1+=array1[i];
+            }
+
+            if(texto.toUpperCase() == texto1.toUpperCase()){
+               return "Es palidromo";
+            }else{
+                return "No es palidromo";
+            }
+        }
+        document.write(palindromo("La ruta nos aporto otro paso natural"));
+        
+    </script>
+</body>
+</html>

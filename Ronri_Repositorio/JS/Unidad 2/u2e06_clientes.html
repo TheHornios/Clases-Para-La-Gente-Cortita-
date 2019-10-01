@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var clientes  = new Array(
+            "Cliente;Localidad;Cuota",
+            "Laura;Santander;50",
+            "Álvaro;Castro;50",
+            "Igor;Castro;60",
+            "Ivan;Santander;40",
+            "Mónica;Zamora;30",
+            "Javi;Bilbao;30",
+            "David;Bilbao;50",
+            "José Luis;Bilbao;60");
+        
+        var menu = true;
+        var menuText = "";
+        while(menu){
+            menuText = prompt("1.Todos: \n2.Clientes de una loclaidad: \n3.Clientes que tengan una cuota mayor que un valor pedido:").charAt(0);
+            if(menuText == 1){
+                mostrar(clientes);
+                menu = false;
+            }
+            if(menuText == 2){
+                clienteLocalid(clientes,prompt("Introduce una localidad de los clientes: "));
+                menu = false;
+            }
+            if(menuText == 3){
+                clienteCuota(clientes,prompt("Introduce una cuota"));
+                menu = false;
+            }
+        }
+        function clienteCuota(tabla,cuorta){
+            var si = false;
+            for(let i = 1;i<tabla.length;i++){
+                var arr = tabla[i].split(";");
+                if( parseInt(arr[2])> cuorta){
+                    si = true;
+                }
+            }
+            if(si){
+                document.write("<table><tr><td>"+tabla[0].split(";")[0]+"</td><td>"+tabla[0].split(";")[1]+"</td><td>"+tabla[0].split(";")[2]+"</td></tr>");
+                for(let i = 1;i<tabla.length;i++){
+                    var arr = tabla[i].split(";");
+                    if(parseInt(arr[2])> cuorta){
+                        document.write("<tr>");
+                        for(let x = 0;x<arr.length;x++){
+                            document.write("<td>"+arr[x]+"</td>");
+                        }
+                        document.write("</tr>");
+                    }
+                }
+                document.write("</table>");
+            }else{
+                document.write("No hay cliente con la cuota superior a: "+ cuorta);
+            }
+        }
+        function clienteLocalid(tabla,localidad){
+            var si = false;
+            for(let i = 1;i<tabla.length;i++){
+                var arr = tabla[i].split(";");
+                if(arr[1].toUpperCase() == localidad.toUpperCase()){
+                    si = true;
+                }
+            }
+            if(si){
+                document.write("<table>");
+                for(let i = 0;i<tabla.length;i++){
+                    var arr = tabla[i].split(";");
+                    if(arr[1].toUpperCase() == localidad.toUpperCase()){
+                        document.write("<tr>");
+                        for(let x = 0;x<arr.length;x++){
+                            document.write("<td>"+arr[x]+"</td>");
+                        }
+                        document.write("</tr>");
+                    }
+                }
+                document.write("</table>");
+            }else{
+                document.write("No hay cliente con la localidad: "+ localidad);
+            }
+        }
+        function mostrar(tabla){
+            document.write("<table>");
+            for(let i = 0;i<tabla.length;i++){
+                var arr = tabla[i].split(";");
+                document.write("<tr>");
+                for(let x = 0;x<arr.length;x++){
+                    document.write("<td>"+arr[x]+"</td>");
+                }
+                document.write("</tr>");
+            }
+            document.write("</table>");
+        }
+    </script>
+</body>
+</html>

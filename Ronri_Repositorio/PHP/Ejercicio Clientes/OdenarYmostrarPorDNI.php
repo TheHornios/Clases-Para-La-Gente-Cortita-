@@ -1,7 +1,7 @@
 <?php
     include("Mostrar.php");
     //Ordena y muestra por dni
-
+    mostrarArrayBidimensional($banco);
     //Ascendentemente
     function ordenarPorDniAscendente($banco){
         echo "<h3>6.1º Ordena y muestra por dni Acendente</h3>";

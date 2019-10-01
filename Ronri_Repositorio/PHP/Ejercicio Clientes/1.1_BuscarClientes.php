@@ -1,5 +1,7 @@
 <?php
     include("Mostrar.php");
+    mostrarArrayBidimensional($banco);
+
     //Busqueda Desordenada Secuencial
     function localizarUsuDniDesordenado($banco,$dni){
         echo "<h3> 9º Muestra los datos de un cliente por dn: </h3>";

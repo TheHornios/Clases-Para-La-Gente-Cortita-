@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>u2e02_contarPalabras</title>
+</head>
+<body>
+    <script>
+        var respuesta = prompt("Introduce una frase");
+        if(respuesta.length == 0){
+            document.write("No hay ninguna palabra");
+        }else{
+            var w = respuesta.split(" ");
+            var cant = 0;
+            for(let i = 0;i<w.length;i++){
+                if(w[i]!=" "&&w[i]!=""){
+                    cant++;
+                }
+            }
+            document.write("Cantidad de palabras: "+ cant);
+        }
+    </script>
+</body>
+</html>

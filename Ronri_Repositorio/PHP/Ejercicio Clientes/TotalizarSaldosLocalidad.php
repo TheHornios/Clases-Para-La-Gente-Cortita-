@@ -1,6 +1,8 @@
 <?php
     include("Mostrar.php");
     //Totalizar saldos por  cada una de las localidades 
+    mostrarArrayBidimensional($banco);
+    
     function saldosPorLocalidad($banco){
         echo "<h3>8º Totalizar saldos por  cada una de las localidades </h3>";
         $provinciasEsistentes = array();

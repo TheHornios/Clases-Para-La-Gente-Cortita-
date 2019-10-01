@@ -1,4 +1,5 @@
 <?php
+	/*Rodrigo Pascual Arnaiz*/
     include("Datos.php");
     //Visualizar
     function mostrarArrayBidimensional($banco){
@@ -15,5 +16,5 @@
         echo "</table>";
     }
 
-    mostrarArrayBidimensional($banco);
+   //mostrarArrayBidimensional($banco);
 ?>

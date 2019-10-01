@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>u2e01_mayusculas</title>
+</head>
+<body>  
+    <script>
+        var array = new Array("lunes","martes","miercoles","jueves","viernes","sabado","domingo");
+        for(let i = 0;i<array.length;i++){
+            array[i] = array[i].charAt(0).toUpperCase()+array[i].substring(1);
+            document.write(array[i],"<br/>");
+        }
+
+    </script>
+</body>
+</html>

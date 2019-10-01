@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function nombreapellidos(valor){
+            var txto ="";
+            var array = new Array();
+            for(let i = 0;i<valor.length;i++){
+                if(valor.charAt(i)!=" "){
+                    array.push(valor.charAt(i));
+                }
+            }
+            document.write("1.	El tamaño del nombre más los apellidos(si espacios): "+array.length+"<br/>");
+            for(let i = 0;i<array.length;i++){
+                txto+=array[i];
+            }
+            document.write("2.	La cadena en minúsculas y en mayúsculas: <br/>"+txto.toLowerCase()+"<br/>"+txto.toUpperCase()+"<br/>");
+            array = valor.split(" ");
+            document.write("3.	Que divida el nombre y los apellidos y los muestre en 3 líneas: <br/>"+array[0]+":/<br/>"+array[1]+":/<br/>"+array[2]+":");
+            document.write("4.	Una propuesta de nombre de usuario, compuesto por la inicial del nombre, el primer apellido y la inicial del segundo apellido: "+array[0].charAt(0)+array[1]+array[2].charAt(0)+"<br/>");
+
+            txto = "";
+            for(let i = 0;i<array.length;i++){
+                for(let x = 0;x<3;x++){
+                    txto+=array[i].charAt(x);
+                }
+            }
+            document.write("5.	Una propuesta de nombre de usuario compuesto por las tres primeras letras del nombre y de los dos apellidos: "+txto+"<br/>");
+        }
+        nombreapellidos(prompt("Escribe tu nombre y tu apellido"));
+    </script>
+</body>
+</html>

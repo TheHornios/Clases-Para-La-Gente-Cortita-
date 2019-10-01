@@ -1,6 +1,7 @@
 <?php
     include("Mostrar.php");
     //Odenas por localidad y mostrar 
+    mostrarArrayBidimensional($banco);
     //Ascendente
     function ordenarPorLocalidad1($banco){
         echo "<h3>7.1º Odenas por localidad y mostrar</h3>";

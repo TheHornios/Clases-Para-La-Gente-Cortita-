@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function comprobarMayusculas(valor){
+            var mayus = 0;
+            var minus = 0;
+            for(let i = 0;i<valor.length;i++){
+                if(valor.charAt(i)>='A'&&valor.charAt(i)<='Z'){
+                    mayus++;
+                }else{
+                    minus++;
+                }
+            }
+            if(mayus!=0 && minus==0){
+                return "Los caracteres son Mayusculas";
+            }else{
+                if(mayus==0 && minus!=0){
+                    return "Los caracteres son Minusaculas";
+                }else{
+                    return "Los caracteres son mistos";
+                }
+            }
+        }
+        alert(comprobarMayusculas("AAb"));
+    </script>
+</body>
+</html>
