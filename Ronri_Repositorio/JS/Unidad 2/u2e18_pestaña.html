@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input id="url" type="text" placeholder="Dame una URL" maxlength="20"> 
+    <br/>
+    <button id="botonA">Abrir</button>
+    <button id="botonC">Cerrar</button>
+    <script>
+        var ventana
+        document.getElementById("botonA").addEventListener("click",function(){
+            if(ventana==undefined||ventana.closed){
+                ventana  = window.open("https://"+document.getElementById("url").value,"Caquita");
+            }else{
+                alert("Ventana ya esiste");
+            }
+        });
+        document.getElementById("botonC").addEventListener("click",function(){
+            if(ventana!=undefined&&!ventana.closed){
+                ventana.close();
+            }else{
+                alert("No existe ventana");
+            }
+        });
+    </script>
+</body>
+</html>

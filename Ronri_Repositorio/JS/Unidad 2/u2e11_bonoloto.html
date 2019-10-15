@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var nuemros = new Array();
+        for(let i = 0;i<6;i++){
+            nuemros.push(Math.floor((Math.random()*49))+1);
+        }
+
+        for(let i = 0;i<nuemros.length;i++){
+            var bulce  = true;
+            while(bulce){
+                bulce = false;
+                var bulce2  = true;
+                var pos  = 0;
+                while(bulce2){
+                    if(pos != i&&nuemros[i] == nuemros[pos]){
+                        nuemros[i] = Math.floor((Math.random()*49))+1;
+                        bulce = true;
+                        bulce2 = false;
+                    }
+                    if(pos == nuemros.length){
+                        bulce2 = false;
+                    }
+                    pos++;
+                }
+            }
+        }    
+
+        var texto = "";
+        for(let i = 0;i<6;i++){
+            texto  += nuemros[i]+" ";
+        }
+        document.write("La bonoloto es: "+texto+"("+(Math.floor((Math.random()*10)))+")");
+    </script>
+</body>
+</html>

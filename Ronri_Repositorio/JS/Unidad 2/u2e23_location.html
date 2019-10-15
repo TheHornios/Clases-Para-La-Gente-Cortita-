@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="fname" id="texto">
+    <button id="boton">Aztualizar</button><br>
+    <iframe name="ifram"
+        title="Iframe"
+        width="600"
+        height="800"
+    >
+    </iframe>
+    <script>
+         document.getElementById("boton").addEventListener("click",function(){ 
+                //https://www.google.es/
+           // window.open("https://"+document.getElementById("texto").value,"ifram");
+            window.frames[0].window.location.replace("https://"+document.getElementById("texto").value);
+        });
+    </script>
+</body>
+</html>

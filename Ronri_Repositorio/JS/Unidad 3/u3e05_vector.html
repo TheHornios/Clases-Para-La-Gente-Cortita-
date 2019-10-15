@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Vector{
+            constructor(x,y){
+                this.x = x;
+                this.y = y;
+            }
+            sumar(vector){
+                return new Vector(this.x+vector.getX(),this.y+vector.getY());
+            }
+            resta(vector){
+                return new Vector(this.x-vector.getX(),this.y-vector.getY());
+            }
+            getLongitud(){
+                return  Math.hypot(this.x,this.y);
+            }
+            getX(){
+                return this.x;
+            }
+            getY(){
+                return this.y;
+            }
+
+        }
+        console.log(new Vector(1, 2).sumar(new Vector(2, 3)));
+        // → Vector{x: 3, y: 5}
+        console.log(new Vector(1, 2).resta(new Vector(2, 3)));
+        // → Vector{x: -1, y: -1}
+        console.log(new Vector(3, 4).getLongitud());
+        // → 5
+
+    </script>
+</body>
+</html>

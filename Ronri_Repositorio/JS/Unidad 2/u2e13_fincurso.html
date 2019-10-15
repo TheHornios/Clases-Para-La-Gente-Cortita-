@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function finCurso(dis,mes,año){
+            var finCurso = new Date(2020,05,24);
+            var fechaActual = new Date(año,mes,dis);
+
+            var tiempoRestante= finCurso.getTime()/ 1000-fechaActual.getTime()/ 1000;
+
+            return Math.floor(tiempoRestante/60/60/24);
+        }
+        document.write(finCurso(02,10,2019));
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       
+        var cuenta = {
+            titular:"Alex",
+            saldo:0,
+            ingresar:function(cant){
+                this.saldo+=cant;
+            },
+            extraer:function(cant){
+                this.saldo-=cant;
+            },
+            informar:function(){
+                return "Nombre: "+this.titular+" Saldo: "+this.saldo;
+            }
+        }
+        var num = prompt("1 Ingresar, 2 Retirar, 3 mostrar");
+        if(num==1){
+            cuenta.ingresar(parseInt(prompt("Intoduce la cantidad a ingresar")));
+            document.write(cuenta.informar());
+        }
+        if(num==2){
+            cuenta.extraer(parseInt(prompt("Intoduce la cantidad a ingresar")));
+            document.write(cuenta.informar());
+        }
+    </script>
+</body>
+</html>

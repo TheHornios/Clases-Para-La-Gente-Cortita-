@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        class Dico{
+            constructor(nombre,grupo,año,tipo,localizacion){
+                this.nombre =  nombre || "";
+                this.grupo = grupo || "";
+                this.año = año || "";
+                this.tipo = tipo || "";
+                this.localizacion = localizacion || "";
+                this.prestado = false;
+            }
+            setEstanteris(valor){
+                this.localizacion = valor;
+            }
+            setPrestado(valor){
+                this.prestado = valor;
+            }
+            toString(){
+                return "Nombre: "+this.nombre+" Grupo: "+this.grupo +" Año publi: "+this.año+" Tipo: "+this.tipo+" Localizacion: "+this.localizacion+" Prestado: "+this.prestado;
+            }
+        }
+        
+        let disco = prompt("Nombre Del Disco");
+        let grupo = prompt("Nombre del Grupo");
+        let año = prompt("Año de lanzamiento:");
+        let tipo = "";
+        while(tipo==""){
+            tipo = prompt("Tipo de la musica: rock,indie,pop,punk");
+            if(!(tipo =="rock"||tipo =="indie"||tipo =="pop"||tipo =="punk")){
+                tipo = "";
+            }
+        }
+        let localizacion = prompt("Localizacion en el almacen");
+
+        var discoClas = new Dico(disco,grupo,año,tipo,localizacion);
+        var menu = true;
+        while(menu){
+            var opcion = prompt("1 mostrar \n2 cambiar estanteria \n3 prestar disco \n4devolver disco \n 0salir");
+            if(opcion==0){
+                menu = false;
+            }
+            if(opcion==1){
+                alert(discoClas.toString());
+            }
+            if(opcion==2){
+                alert(discoClas.setEstanteris(prompt("Introduce nueva estanteria")));
+            }
+            if(opcion==3){
+                alert(discoClas.setPrestado(true));
+            }
+            if(opcion==4){
+                alert(discoClas.setPrestado(false));
+            }
+        }
+    </script>
+</body>
+</html>

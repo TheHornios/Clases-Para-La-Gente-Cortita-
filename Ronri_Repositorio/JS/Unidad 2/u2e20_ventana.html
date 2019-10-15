@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button id="boton">Crear ventana</button><br/>
+    <button id="boton0">Cerrar</button><br/>
+    <button id="boton1">Activar</button><br/>
+    <button id="boton2">Mover a 100 x 100</button><br/>
+    <button id="boton3">Mover hacia la izquierda</button><br/>
+    <button id="boton4">Mover hacia la derecha</button><br/>
+    <button id="boton5">Mover hacia la arriba</button><br/>
+    <button id="boton6">Mover hacia abajo</button><br/>
+    <button id="boton7">Escribir</button><br/>
+    <button id="boton8">Restaurar tamaño</button><br/>
+    <button id="boton9">Aumentar tamaño</button><br/>
+    <button id="boton10">Disminuir tamaño</button><br/>
+    <button id="boton11">Escribir texto</button><br/>
+    <button id="boton12">Bajar</button><br/>
+    <button id="boton13">Subir</button><br/>
+
+    <script>
+        var ventana;
+            document.getElementById("boton").addEventListener("click",function(){ 
+                ventana = window.open("", "miVentana", "width= 200, height=100");
+            });
+            document.getElementById("boton0").addEventListener("click",function(){ 
+                if(ventana!=undefined){
+                    ventana.close();
+                    ventana = undefined;
+                }
+            });
+            document.getElementById("boton1").addEventListener("click",function(){ 
+                if(ventana!=undefined){
+                    ventana.focus();
+                }
+            });
+            document.getElementById("boton2").addEventListener("click",function(){ 
+                if(ventana!=undefined){
+                    ventana.moveTo(100,100);
+                }
+            });
+            document.getElementById("boton3").addEventListener("click",function(){ 
+                if(ventana!=undefined){
+                    ventana.moveBy(-10,0);
+                }
+            });
+            document.getElementById("boton4").addEventListener("click",function(){ 
+                if(ventana!=undefined){
+                    ventana.moveBy(10,0);
+                }
+            });
+            document.getElementById("boton5").addEventListener("click",function(){
+                if(ventana!=undefined){
+                    ventana.moveBy(0,-10);
+                }
+            });
+            document.getElementById("boton6").addEventListener("click",function(){ 
+                if(ventana!=undefined){
+                    ventana.moveBy(0,+10);
+                }
+            });
+            document.getElementById("boton7").addEventListener("click",function(){ 
+                if(ventana!=undefined){
+                    ventana.document.write("Hola Mundo");
+                }
+            });
+            document.getElementById("boton8").addEventListener("click",function(){ 
+                if(ventana!=undefined){
+                    ventana.resizeTo(100,100);
+                }
+            });
+            document.getElementById("boton9").addEventListener("click",function(){ 
+                if(ventana!=undefined){
+                    ventana.resizeBy(10,10);
+                }
+            });
+            document.getElementById("boton10").addEventListener("click",function(){ 
+                if(ventana!=undefined){
+                    ventana.resizeBy(-10,-10);
+                }
+            });
+            document.getElementById("boton11").addEventListener("click",function(){ 
+                if(ventana!=undefined){
+                    for(let i = 0;i<100;i++){
+                        ventana.document.write("Hola Mundo");
+                    }
+                }
+            });
+            document.getElementById("boton12").addEventListener("click",function(){ 
+                if(ventana!=undefined){
+                    ventana.scrollBy(0,100);
+                }
+            });
+            document.getElementById("boton13").addEventListener("click",function(){ 
+                if(ventana!=undefined){
+                    ventana.scrollBy(0,-100);
+                }
+            });
+    </script>
+
+</body>
+</html>

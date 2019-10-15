@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function mayor(arr){
+            var mayor = arr[0];
+            for(let i = 0 ;i<arr.length;i++){
+                if(mayor<arr[i]){
+                    mayor = arr[i];
+                }
+            }
+            return mayor;
+        }    
+        document.write(mayor(new Array(232, 56, 33, 878, 988, 398, 100)));
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    var X = 0;
+    var Y = 0;
+    var ventana = window.open("", "miVentana", "width= 300, height=200");
+    var intervalo = setInterval(function(){
+        X = Math.random()*window.innerWidth;
+        Y = Math.random()*window.innerHeight;
+        ventana.moveTo(X,Y);
+    },100);
+
+    setTimeout(function(){
+        clearInterval(intervalo);
+        ventana.close();
+    },12000);
+    </script>
+</body>
+</html>

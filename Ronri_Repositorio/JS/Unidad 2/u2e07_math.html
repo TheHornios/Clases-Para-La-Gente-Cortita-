@@ -21,13 +21,25 @@
                 menu = false;
             }
             if(menuText == 3){
-
+                opcion3();
                 menu = false;
             }
             if(menuText == 4){
-
+                opcion4();
                 menu = false;
             }
+        }
+        function opcion4(){
+            var angulo;
+            do{
+                angulo = parseInt(prompt("Introduce un agulo entre 0 y 360"));
+            }while(angulo < 0||angulo>360)
+            document.write("Seno: "+Math.sin(angulo)+"<br/>");
+            document.write("Seno: "+Math.cos(angulo)+"<br/>");
+            document.write("Seno: "+Math.tan(angulo));
+        }
+        function opcion3(){
+            document.write(Math.round(prompt("Introduce un numero a redondear"),0));
         }
         function opcion1(){
             var si = true;
@@ -43,7 +55,6 @@
                 }
                 
             }while(si)
-            alert(si);
             document.write(potencia(base,exponete));
         }
         function opcion2(){

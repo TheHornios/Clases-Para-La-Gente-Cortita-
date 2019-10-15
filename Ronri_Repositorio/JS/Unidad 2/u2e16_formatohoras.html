@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function formatohoras(numero){
+            var date = new Date();
+            date.setHours(date.getHours()+3);
+            
+            if(numero ==1){
+                return horMinSec(date);
+            }else{
+                return AMyPM(date);
+            }
+        }
+        function AMyPM(date){
+            if(date.getHours()<24&&date.getHours()>12){
+                    console.log(date.getHours());
+                return ""+(date.getHours()-12 < 10?"0"+Math.floor(date.getHours()-12):Math.floor(date.getHours()-12))+":"+(date.getMinutes() < 10?"0"+date.getMinutes():date.getMinutes())+"PM";
+            }else{
+                if(date.getHours()!=12){
+                    return ""+(date.getHours()-12 < 10?"0"+Math.floor(date.getHours()-12):Math.floor(date.getHours()-12))+":"+(date.getMinutes() < 10?"0"+date.getMinutes():date.getMinutes())+":"+(date.getSeconds() < 10?"0"+date.getSeconds():date.getSeconds())+"AM";
+                }else{
+                    return ""+date.getHours()+":"+(date.getMinutes() < 10?"0"+date.getMinutes():date.getMinutes())+":"+(date.getSeconds() < 10?"0"+date.getSeconds():date.getSeconds())+"AM";
+                }
+            }
+        }
+        function horMinSec(date){
+            return ""+(date.getHours() < 10?"0"+date.getHours():date.getHours())+":"+(date.getMinutes() < 10?"0"+date.getMinutes():date.getMinutes())+":"+(date.getSeconds() < 10?"0"+date.getSeconds():date.getSeconds());
+        }
+        document.write(formatohoras(2));
+    </script>
+</body>
+</html>

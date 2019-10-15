@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function fiboIter(cantidad){
+           var result =0;
+            var pre = 0;
+            var post = 1;
+
+            if(cantidad>1){
+                for(var i = 2;i<=cantidad;i++){
+                    result = pre+post;
+                    pre = post;
+                    post = result;
+                }
+            }
+
+            return result;
+       }
+       function fiborRecur(cantidad){
+           if(cantidad== 0 || cantidad == 1){
+                return cantidad;
+           }else{
+                return fiborRecur(cantidad-1) + fiborRecur(cantidad-2);
+           }
+       }
+       var tiempo1 = new Date();
+       fiboIter(40);
+       var tiempo1_1 = new Date();
+       document.write("El iterativo a tardado: "+(tiempo1_1 .getTime()-tiempo1.getTime())+"ms <br/>");
+
+       var tiempo2 = new Date();
+       fiborRecur(40);
+       var tiempo2_1 = new Date();
+       document.write("El recursivo a tardado: "+(tiempo2_1 .getTime()-tiempo2.getTime())+"ms");
+    </script>
+</body>
+</html>

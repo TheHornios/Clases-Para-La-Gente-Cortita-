@@ -44,6 +44,7 @@
                     si = true;
                 }
             }
+            
             if(si){
                 document.write("<table><tr><td>"+tabla[0].split(";")[0]+"</td><td>"+tabla[0].split(";")[1]+"</td><td>"+tabla[0].split(";")[2]+"</td></tr>");
                 for(let i = 1;i<tabla.length;i++){
@@ -63,12 +64,14 @@
         }
         function clienteLocalid(tabla,localidad){
             var si = false;
+
             for(let i = 1;i<tabla.length;i++){
                 var arr = tabla[i].split(";");
                 if(arr[1].toUpperCase() == localidad.toUpperCase()){
                     si = true;
                 }
             }
+
             if(si){
                 document.write("<table>");
                 for(let i = 0;i<tabla.length;i++){

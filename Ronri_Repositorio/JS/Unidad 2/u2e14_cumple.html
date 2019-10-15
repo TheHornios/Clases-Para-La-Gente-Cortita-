@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function cumple(dia,mes){
+            var hoy = new Date();
+            var cumple = new Date(hoy.getFullYear(),mes-1,dia);
+            
+            if(hoy.getTime()<cumple.getTime()){
+                cumple = new Date(hoy.getFullYear(),mes-1,dia);
+            }else{
+                cumple = new Date(hoy.getFullYear()+1,mes-1,dia);
+            }
+
+            var texto = "Tiempo que te queda hasta el cumple:<br/>";
+            texto+="-Milisegundos: "+(cumple.getTime()-hoy.getTime())+"<br/>";
+            texto+="-Dias: "+Math.floor((cumple.getTime()/1000-hoy.getTime()/1000)/60/60/24);
+            return texto+cumpleEnDomingo2100(cumple);
+        }
+
+        function cumpleEnDomingo2100(date){
+            var text = "<br/>Años que Culple cae en domingo: <br/>";
+            var date2 = date;
+            for(var i = date2.getFullYear();i<2100;i++){
+                if(date2.getDay()==0){
+                    text+=date2.getFullYear()+"<br/>";
+                }
+                date2.setFullYear(date2.getFullYear()+1);
+            }
+            return text;
+        }
+        document.write(cumple(09,09));
+    </script>
+</body>
+</html>
