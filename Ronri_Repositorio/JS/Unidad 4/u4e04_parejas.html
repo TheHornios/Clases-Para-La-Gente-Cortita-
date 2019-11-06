@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="eje4.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="tab"></div>
+    <form action=''>
+            <label for="aciertos">Aciertos</label>
+            <input required type='text' name='aciertos' id="aciertos" readonly value="0">
+            <label for="fallos">Fallos</label>
+            <input required type='text' name='fallos' id="fallos" readonly value="0">
+    </form>
+    <script>
+        /* LAs dos unicas varibles */
+        var pulsado1 = null;
+        var pulsado2 = null;
+        /* Crea el tablero*/
+        function crearTablero(alto,ancho,img,posImg){
+            var texto = "<table>";
+            for(let i = 0;i<alto;i++){
+                texto += "<tr>";
+                for(let e = 0;e<ancho;e++){
+                    texto += "<td>  <img draggable='false' src='"+img[posImg]+"' id='"+i+"e"+e+"' class='pulsar'/></td>";
+                    posImg++;
+                }
+                texto += "</tr>";
+            }
+            texto += "</table>";
+            return texto;
+        }
+        /* Prepara el array para el programa  y lo desordena */
+        function desordenarArray(arr,tam){
+            for(let i = 0;i<tam;i++){
+                arr.push(arr[i]);
+            }
+            return arr.sort(function(){return Math.random() - 0.5});
+        }
+        /* Inicia la ejecucion al cargar todo el script */
+        document.addEventListener('DOMContentLoaded',function(){(function() { 
+            
+            document.getElementById("tab").innerHTML = crearTablero(3,4,desordenarArray(new Array('./4_IMG/1.jpg','./4_IMG/2.png','./4_IMG/3.jpg','./4_IMG/4.jpg','./4_IMG/5.jpg','./4_IMG/6.jpg'),6),0);
+            document.querySelectorAll(".pulsar").forEach(ele =>{
+                ele.addEventListener("click",controlador);
+            }); 
+        })();},false);
+       /* Cambia a un elemento su clase */
+        function cambiarClass(element,claseN){
+            document.getElementById(element).className = claseN;
+        }
+        /* Añade a un elemento una clase */
+        function añadirClass(element,claseN){
+            document.getElementById(element).classList.add(claseN);
+        }
+        /* Retorna el Src de un objeto*/
+        function scrString(element){
+            return document.getElementById(element).src;
+        }
+        /* Funcion que calcula que las dos imagenes han sido pulsadas */
+        function pulsarDosImagenes(){
+            if(pulsado1 != null&&pulsado2!=null ){
+                if(scrString(pulsado1) == scrString(pulsado2)){
+                    acierto();
+                }else{
+                    fallo(); 
+                }
+            }
+        }
+        /* Funcion que se encarga de poner en oculto las imagenes si no son iguales*/
+        function fallo(){
+            añadirClass(pulsado2,"ocultar");
+            añadirClass(pulsado1,"ocultar");
+            document.getElementById("fallos").value = parseInt(document.getElementById("fallos").value)+1;
+            crearIntervalo(500,function(){cambiarClass(pulsado1,"pulsar");cambiarClass(pulsado2,"pulsar");pulsado1 = null;pulsado2 = null;});
+        }
+        /* Funcion que deja estaticas la imagenes en el caso de que sean iguales*/
+        function acierto(){
+            document.getElementById(pulsado1).removeEventListener("click",controlador,false);
+            document.getElementById(pulsado2).removeEventListener("click",controlador,false);
+            pulsado1 = null;
+            pulsado2 = null;
+            document.getElementById("aciertos").value = parseInt(document.getElementById("aciertos").value)+1;
+        }
+        /* Controlador del progrmama*/
+        function controlador(e){
+            /* Caso en el que se ha pulsado la primera imagen */
+            if(pulsado1==null&&pulsado1!=e.target.id&&pulsado2!=e.target.id){
+                pulsado1 = e.target.id;
+                añadirClass(pulsado1,"mostrar");
+                crearIntervalo(1000,function(){cambiarClass(pulsado1,"noPulsar");});
+            }else{
+                /* Caso en el que se pulsa la segunda imagen*/
+                if(pulsado2==null&&pulsado1!=e.target.id&&pulsado2!=e.target.id){
+                    pulsado2 = e.target.id;
+                    añadirClass(pulsado2,"mostrar");
+                    /* Se llama a la funcion pulsarDosImagenes() para comporbar si son correctas o no*/
+                    crearIntervalo(1000,function(){cambiarClass(pulsado2,"noPulsar");pulsarDosImagenes();});
+                }
+            }
+        }
+        /* Crea un intervalo*/
+        function crearIntervalo(time,funcion){
+            setTimeout(() => {
+                funcion();
+            }, time);
+        }
+
+    </script>
+</body>
+</html>

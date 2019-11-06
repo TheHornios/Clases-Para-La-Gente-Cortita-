@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Ejercicio tomado de https://www.arkaitzgarro.com/javascript/snippets/cap18/ej19.html -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Eventos - Información de posición en la ventana </title>
+    <style>
+        body {
+            font-family: arial, helvetica;
+        }
+
+        .box {
+            width: 160px;
+            height: 160px;
+            border: thin solid silver;
+            padding: .5em;
+            float: left;
+            margin-right: 15px;
+        }
+
+        .box h1 {
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <h1>Posición</h1>
+        <span class="posicion"></span>
+    </div>
+
+    <script type="text/javascript">
+        function tamanoVentanaNavegador() {
+            // Adaptada de http://www.howtocreate.co.uk/tutorials/javascript/browserwindow
+            var dimensiones = [];
+
+            if (typeof (window.innerWidth) == 'number') {
+                // No es IE
+                dimensiones = [window.innerWidth, window.innerHeight];
+            } else if (document.documentElement && (document.documentElement.clientWidth || document.documentElement.clientHeight)) {
+                //IE 6 en modo estandar (no quirks)
+                dimensiones = [document.documentElement.clientWidth, document.documentElement.clientHeight];
+            } else if (document.body && (document.body.clientWidth || document.body.clientHeight)) {
+                //IE en modo quirks
+                dimensiones = [document.body.clientWidth, document.body.clientHeight];
+            }
+
+            return dimensiones;
+        }
+        document.addEventListener("click",function(e){
+            let arrPos = tamanoVentanaNavegador();
+            if(arrPos[0]/2>e.clientX){
+                if(arrPos[1]/2>e.clientY){
+                    mostrarInformacion("Izquierda Superior",document.querySelector(".posicion"));
+                }else{
+                    mostrarInformacion("Izquierda Inferior",document.querySelector(".posicion"));
+                }
+            }else{
+                if(arrPos[1]/2>e.clientY){
+                    mostrarInformacion("Derecha Superior",document.querySelector(".posicion"));
+                }else{
+                    mostrarInformacion("Derecha Inferior",document.querySelector(".posicion"));
+                }
+            }
+        });
+        function mostrarInformacion(text,elemento){
+            elemento.innerHTML = text;
+        }
+    </script>
+</body>
+
+</html>

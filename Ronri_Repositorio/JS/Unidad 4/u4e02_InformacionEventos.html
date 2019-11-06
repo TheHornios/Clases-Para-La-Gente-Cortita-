@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Ejercicio tomado de https://www.arkaitzgarro.com/javascript/snippets/cap18/ej18.html -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Eventos - Información eventos ratón y teclado</title>
+    <style>
+        div.box{display: inline-block;}
+    </style>
+</head>
+
+<body>
+    <div id="raton" class="box">
+        <h1>Ratón</h1>
+        <div></div>
+    </div>
+    <br/>
+    <div id="teclado" class="box">
+        <h1>Teclado</h1>
+        <div></div>
+    </div>
+    <script>
+
+        document.addEventListener("mousemove",function(e){
+            mostrarInformacion("Navegador ["+e.screenX+","+e.screenY+"]"+"<br/>"+"Pagina ["+e.clientX+","+e.clientY+"]",document.querySelector('#raton>div'));
+            cambioColor(document.querySelector('#raton'),'#ffffff');
+            cambioColor(document.querySelector('#teclado'),'#ffffff');
+        });
+        document.addEventListener("click",function(e){
+            cambioColor(document.querySelector('#raton'),'#FFFFCC');
+        });
+        document.addEventListener("keypress",function(e){
+            mostrarInformacion("Caracter ["+e.key+"]"+"<br/>"+"Codigo ["+e.keyCode+"]",document.querySelector('#teclado>div'));
+            cambioColor(document.querySelector('#teclado'),'#CCE6FF');
+        });
+        function cambioColor(elemento,color){
+            elemento.style.backgroundColor = color;
+        }
+        function mostrarInformacion(text,elemento){
+            elemento.innerHTML = text;
+        }
+    </script>
+</body>
+
+</html>

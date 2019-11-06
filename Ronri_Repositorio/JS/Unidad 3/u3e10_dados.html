@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr = new Array();
+        for(let i = 2;i<13;i++){
+            arr[i]=0;
+        }
+        for(let i = 0;i<36000;i++){
+            arr[(Math.round(Math.random()*5)+1)+(Math.round(Math.random()*5)+1)]++;
+        }
+        for(let i = 2;i<arr.length;i++){
+            document.write(i+"="+arr[i]+"<br/>");
+        }
+    </script>
+</body>
+</html>

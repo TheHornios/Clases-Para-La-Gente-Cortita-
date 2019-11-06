@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        document.write(validarDniNie(prompt("Introduce Un DNI,NIF o NIE")));
+
+        function validarDniNie(dni){
+            var error = true;
+            if(dni.length == 9&&!compobarSiSonNumeros(dni.substring(0,dni.length-1))){
+                error = false;
+                error = letraDni(dni.substring(0,dni.length-1),dni.charAt(dni.length-1));
+            }
+            if(dni.length == 9&&!compobarSiSonNumeros(dni.substring(1,dni.length-1))){
+                if(dni.charAt(0)=='X'||dni.charAt(0)=='Y'||dni.charAt(0)=='Z'){
+                    if(dni.charAt(0)=='X'){
+                        error = letraDni("0"+dni.substring(1,dni.length-1),dni.charAt(dni.length-1));
+                    }
+                    if(dni.charAt(0)=='Y'){
+                        error = letraDni("1"+dni.substring(1,dni.length-1),dni.charAt(dni.length-1));
+                    }
+                    if(dni.charAt(0)=='Z'){
+                        error = letraDni("2"+dni.substring(1,dni.length-1),dni.charAt(dni.length-1));
+                    }
+                }
+            }
+            return error?"El DNI,NIF,NIE: "+dni+" no es valido":"El DNI,NIF,NIE: "+dni+" es valido";
+        }
+        function letraDni(dni,letra){
+            var arr = new Array('T','R','W','A','G','M','Y','F','P','D','X','B','N','J','Z','S','Q','V','H','L','C','K','E');
+            console.log(letra);
+            if(arr[dni%23]==letra){
+                return false;
+            }else{
+                return true;
+            }
+        }
+        function compobarSiSonNumeros(texto){
+            var error = false;
+            for(let i = 0;i<texto.length;i++){
+                if(!(texto.charAt(i)>=0&&texto.charAt(i)<=9)){
+                    error = true;
+                }
+            }
+            return error;
+        }
+    </script>
+</body>
+</html>

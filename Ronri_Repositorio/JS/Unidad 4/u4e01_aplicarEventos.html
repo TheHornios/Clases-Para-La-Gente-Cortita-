@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Unidad 4 - Aplicar Eventos</title>
+    <!-- Ejercicio tomado de https://www.arkaitzgarro.com/javascript/snippets/cap18/ej17.html -->	
+</head>
+
+<body>
+	<div>
+		<p id="p1">
+			Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed mattis enim vitae orci. Phasellus libero.
+			Maecenas nisl arcu, consequat congue, commodo nec, commodo ultricies, turpis. Quisque sapien nunc, posuere
+			vitae, rutrum et, luctus at, pede. Pellentesque massa ante, ornare id, aliquam vitae, ultrices porttitor,
+			pede. Nullam sit amet nisl elementum elit convallis malesuada. Phasellus magna sem, semper quis, faucibus
+			ut, rhoncus non, mi. Duis pellentesque, felis eu adipiscing ullamcorper, odio urna consequat arcu, at
+			posuere ante quam non dolor. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis scelerisque.
+		</p>
+		<a onclick="ocultar('p1',this);return false" href="https://www.arkaitzgarro.com/javascript/snippets/cap18/ej17.html#">Ocultar contenidos</a>
+	</div>
+	<br>
+	<div>
+		<p id="p2">
+			Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed mattis enim vitae orci. Phasellus libero.
+			Maecenas nisl arcu, consequat congue, commodo nec, commodo ultricies, turpis. Quisque sapien nunc, posuere
+			vitae, rutrum et, luctus at, pede. Pellentesque massa ante, ornare id, aliquam vitae, ultrices porttitor,
+			pede. Nullam sit amet nisl elementum elit convallis malesuada. Phasellus magna sem, semper quis, faucibus
+			ut, rhoncus non, mi. Duis pellentesque, felis eu adipiscing ullamcorper, odio urna consequat arcu, at
+			posuere ante quam non dolor. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis scelerisque.
+		</p>
+		<a onclick="ocultar('p2',this);return false"  href="https://www.arkaitzgarro.com/javascript/snippets/cap18/ej17.html#">Ocultar contenidos</a>
+	</div>
+	<br>
+	<div>
+		<p id="p3">
+			Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed mattis enim vitae orci. Phasellus libero.
+			Maecenas nisl arcu, consequat congue, commodo nec, commodo ultricies, turpis. Quisque sapien nunc, posuere
+			vitae, rutrum et, luctus at, pede. Pellentesque massa ante, ornare id, aliquam vitae, ultrices porttitor,
+			pede. Nullam sit amet nisl elementum elit convallis malesuada. Phasellus magna sem, semper quis, faucibus
+			ut, rhoncus non, mi. Duis pellentesque, felis eu adipiscing ullamcorper, odio urna consequat arcu, at
+			posuere ante quam non dolor. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis scelerisque.
+		</p>
+		<a onclick="ocultar('p3',this);return false"  href="https://www.arkaitzgarro.com/javascript/snippets/cap18/ej17.html#">Ocultar contenidos</a>
+	</div>
+	<script>
+		function ocultar(eso,a){
+			if(document.getElementById(eso).style.display==''||document.getElementById(eso).style.display== 'block'){
+				document.getElementById(eso).style.display = 'none';
+				a.innerHTML = "Desocultar contenidos";
+			}else{
+				document.getElementById(eso).style.display= 'block'
+				a.innerHTML = "Ocultar contenidos";
+			}
+		}
+	</script>
+</body>
+	
+</html>

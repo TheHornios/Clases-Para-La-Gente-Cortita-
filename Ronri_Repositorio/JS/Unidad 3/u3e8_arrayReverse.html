@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var array = new Array();
+        for(let i =0;i<100;i++){
+            array.push(i);
+        }
+
+        function mostar(ar){
+            var s = "";
+            ar.forEach(function(element){
+                s+=element+"<br/>";
+            }
+            );
+            return s;
+        }
+        function reverseArray(arr){
+            return arr.reverse();
+        }
+        function reverseArray2(arr){
+            for(let i = 0;i<Math.floor(arr.length/2);i++){
+                var sec = arr[arr.length-i-1];
+                arr[arr.length-i] = arr[i];
+                arr[i] = sec;
+            }
+        }
+        
+        reverseArray2(array)
+        document.write(mostar(array));
+    </script>   
+</body>
+</html>

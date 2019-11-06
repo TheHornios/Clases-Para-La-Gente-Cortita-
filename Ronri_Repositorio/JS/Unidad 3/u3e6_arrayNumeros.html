@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr = new Array();
+        for(let i =0; i < 100;i++){
+            arr.push(i);
+        }
+        function maximo(ar){
+            var max = ar[0];
+            for(let i = 0;i<ar.length;i++){
+                if(max<ar[i]){
+                    max = ar[i];
+                }
+            }
+            return max;
+        }
+        function borrarUltimoYañadir(ar,val){
+            ar.splice(ar.length,1);
+            ar.push(val);
+        }
+        function sumTodos(ar){
+            var s = 0;
+            for(let i =0; i < ar.length ;i++){
+                s+=ar[i];
+            }
+            return s;
+        }
+        function mostrarNumeros(ar){
+            var s = "";
+            for(let i =0; i < ar.length ;i++){
+                if(ar[i]%2==0){
+                    s+=ar[i]+"<br/>";
+                }
+               
+            }
+            return s;
+        }
+        function mostrarNumerosForEach(ar){
+            var s = "";
+            ar.forEach(function(element){
+                if(element%2==0){
+                    s+=element+"<br/>";
+                }
+            }
+            );
+            return s;
+        }
+        function mostar(ar){
+            var s = "";
+            ar.forEach(function(element){
+                s+=element+"<br/>";
+            }
+            );
+            return s;
+        }
+        //Mostrar 
+        document.write("Numeros pares :<br/>"+mostrarNumerosForEach(arr)+"<br/>");
+        document.write("Suma de todos los numeros :"+sumTodos(arr)+"<br/>");
+        borrarUltimoYañadir(arr,parseInt(prompt("Introduce un numero")));
+        document.write("Todos los numeros del Array :"+mostar(arr));
+        document.write("Mosatrar mas alto :"+maximo(arr));
+    </script>
+</body>
+</html>

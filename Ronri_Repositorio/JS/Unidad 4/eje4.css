@@ -1,0 +1,32 @@
+.pulsar{opacity: 0;
+    cursor: pointer;
+}
+td:hover{
+    background-color:grey ;
+}
+.noPulsar{opacity: 1;
+    cursor: unset;
+}
+.mostrar {
+    animation: normal 1s mostrarMenu;
+}
+@keyframes mostrarMenu {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+.ocultar {
+    animation: normal 0.5s ocultarMenu;
+}
+@keyframes ocultarMenu {
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+    }
+}
+table,tr,td{border: solid 1px black;}

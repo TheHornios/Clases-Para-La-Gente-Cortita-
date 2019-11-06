@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function rango(inicio,fin,pas=1){
+            var arr = new Array();
+            if(0>pas){
+                for(let i = inicio;i>=fin;i+=pas){
+                    arr.push(i);
+                } 
+            }else{
+                for(let i = inicio;i<=fin;i+=pas){
+                    arr.push(i);
+                } 
+            }
+            return arr;
+        }
+        function rango2(inicio1,fin1,pas1){
+            if(0>pas1){
+                return rango(inicio1,fin1,pas1);
+            }else{
+                return rango(inicio1,fin1,pas1);
+            }
+        }
+        function suma(ar){
+            var i = 0;
+            ar.forEach(function(element){
+                i+=element;
+            }
+            );
+            return i;
+        }
+        function mostar(ar){
+            var s = "";
+            ar.forEach(function(element){
+                s+=element+"<br/>";
+            }
+            );
+            return s;
+        }
+        document.write(mostar(rango(100,200)));
+        document.write("Suma de todo el array"+suma(rango(100,200)));
+        document.write(mostar(rango2(100,200,2)));
+        document.write("///////////////////////////////////////////////////</br>");
+        document.write(mostar(rango2(200,100,-2)));
+    </script>
+</body>
+</html>

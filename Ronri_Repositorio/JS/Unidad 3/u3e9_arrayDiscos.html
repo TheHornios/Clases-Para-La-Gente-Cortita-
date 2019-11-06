@@ -1,0 +1,211 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Dico{
+            constructor(nombre,grupo,año,tipo,localizacion){
+                this.nombre =  nombre || "";
+                this.grupo = grupo || "";
+                this.año = año || "";
+                this.tipo = tipo || "";
+                this.localizacion = localizacion || "";
+                this.prestado = false;
+            }
+            setEstanteris(valor){
+                this.localizacion = valor;
+            }
+            setPrestado(valor){
+                this.prestado = valor;
+            }
+            getNombre(){
+                return this.nombre;
+            }
+            toString(){
+                return "Nombre: "+this.nombre+" Grupo: "+this.grupo +" Año publi: "+this.año+" Tipo: "+this.tipo+" Localizacion: "+this.localizacion+" Prestado: "+this.prestado;
+            }
+        }
+
+        var discos = new Array();
+        var bucle = -1;
+        var texto = new Array("Mostrar número de discos","Mostrar listado de discos","Mostrar un intervalo de discos","Añadir un disco","Salir");
+        while(bucle==-1){
+            bucle = menu(texto,texto.length);
+            var texto2 = "";
+            if(bucle==0){
+                texto2 = "Opcion 0\n"+opc0(discos)+"\n";
+                bucle = -1;
+            }
+            if(bucle==1){
+                texto2 = "Opcion 1\n"+opc1(discos);
+                bucle = -1;
+            }
+            if(bucle==2){
+                texto2 = "Opcion 2\n"+opc2(discos);
+                bucle = -1;
+            }
+            if(bucle==3){
+                texto2 = "Opcion 3\n"+opc3(discos);
+                bucle = -1;
+            }
+            if(bucle==4){
+                texto2 = "Opcion 4\n"+opc3(opc4);
+                bucle = -1;
+            }
+            if(bucle==5){
+                texto2 = "Opcion 5\n"+opc3(opc5);
+                bucle = -1;
+            }
+            if(bucle==6){
+                bucle = 546;
+                clearInterval(intervalo);
+            }
+            alert(texto2);
+        }
+
+        function opc5(arr){
+            let textoArr = new Array("Busqueda por posicion","Busqueda por nombre");
+            let pos = menu(textoArr,textoArr.length);
+            if(pos==0){
+                return arr[parseInt(prompt("Introduce la posicion"))].toString();
+            }else{
+                var i = busquedaPorNombre(prompt("Introduce el nombre del disco ")).toString();
+                return i==null?"No se ha encontrado el disco":i.toString();
+            }
+        }
+        function busquedaPorNombre(nombre){
+            var disco = null;
+            for(let i = 0;i<arr.length;i++){
+                if(arr[i].getNombre()==nombre){
+                    disco = arr[i];
+                }
+            }
+            return disco;
+        }
+        function opc4(arr){
+            let textoArr = new Array("Borrar Al principio","Borrar Al final");
+            let pos = menu(textoArr,textoArr.length);
+            if(pos==0){
+                moverArrayUnoAbajo();
+                return "Borrado al principio";
+            }else{
+                arr.pop();
+                return "Borrado al final";
+            }
+        }
+        function crearDisco(){
+            var nombre = prompt("Introduce el nombre");
+            var grupo = prompt("Introduce el grupo");
+            var año = prompt("Introduce el año");
+            var tipo = prompt("Introduce el tipo");
+            var localizacion = prompt("Introduce la localidad");
+            return new Dico(nombre,grupo,año,tipo,localizacion);
+        }
+        function opc3(arr){
+            let textoArr = new Array("Añadir Al principio","Añadir Al final");
+            let pos = menu(textoArr,textoArr.length);
+            if(pos==0){
+                moverArrayUnoArriba(arr);
+                arr[0] = crearDisco();
+                return "Añadido al principio";
+            }else{
+                arr.push(crearDisco());
+                return "Añadido al final";
+            }
+        function moverArrayUnoArriba(arr){
+            arr.push(arr[arr.length]);
+            for(let i = arr.length;i>1;i--){
+                arr[i] = arr[i-1];
+            }
+        }
+        function moverArrayUnoAbajo(arr){
+            for(let i = 0;i<arr.length-1;i++){
+                arr[i] = arr[i+1];
+            }
+            arr[arr.length].pop();
+        }
+            
+        }
+        function opc2(arr){
+            let buc = true;
+            let txt = "";
+            let arrayNume = new Array();
+            while(buc){
+                txt = prompt("Introduce un intervalo de la forma NumMin-NumMax");
+                arrayNume = txt.split("-");
+                if(arrayNume.length = 2 &&Number.isInteger(parseInt(arrayNume[0]))&&Number.isInteger(parseInt(arrayNume[1]))){
+                    buc = false;
+                }
+            }
+            if(arrayNume[0]<0){
+                arrayNume[0] = 0;
+            }
+            if(arrayNume[1]>arr.length){
+                arrayNume[1] = arr.length;
+            }
+            return mostarIntervalo(arrayNume[0],arrayNume[1]);
+        }
+        function mostarIntervalo(inicio,fin){
+            let text = "";
+            for(let i = inicio;i<fin;i++){
+                text += arr[i].toString()+"\n";
+            }
+            return text;
+        }
+        function opc1(arr){
+            let texto = new Array("Orden que se encuentren","Orden Inverso al que se Encuentren","Orden Alfabetico");
+            let val = menu(texto,3);
+            if(val ==0){
+                return mostarArray(arr);
+            }
+            if(val == 1){
+                return mostarArrayInverso(arr);
+            }
+            if(val == 3){
+                ordenarAlfabeticamente(arr);
+                return mostarArray(arr);
+            }
+        }
+        function ordenarAlfabeticamente(arr){
+            arr.sort(function(a,b){
+                if(a.getNombre()>b.getNombre()){
+                    return 1;
+                }
+                if(a.getNombre()<b.getNombre()){
+                    return -1;
+                }
+                return 0;
+
+            });
+        }
+        function mostarArrayInverso(arr){
+            let text = "";
+            for(let i = arr.length;i>0;i--){
+                text += arr[i].toString()+"\n";
+            }
+            return text;
+        }
+        function mostarArray(arr){
+            let text = "";
+            for(let i = 0;i<arr.length;i++){
+                text += arr[i].toString()+"\n";
+            }
+            return text;
+        }
+        function opc0(arr){
+            return arr.length;
+        }
+        function menu(texto,numOp){
+            let text = "";
+            for(let i = 0;i<texto.length;i++){
+                text +=i+" "+texto[i]+"\n";
+            }
+            return prompt(text);
+        }
+    </script>
+</body>
+</html>
